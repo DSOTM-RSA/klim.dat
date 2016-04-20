@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    36;  115; 52.0308;  9.2350;19310101;20030502;Aerzen-Reher                                                                                                                                           

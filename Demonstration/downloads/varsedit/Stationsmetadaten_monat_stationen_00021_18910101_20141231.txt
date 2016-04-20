@@ -1,0 +1,6 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    21;  503; 47.6069;  9.7014;19341015;19981231;Achberg-Doberatsweiler                                                                                                                                 
+    21;  513; 47.6174;  9.7247;19990101;20030409;Achberg-Doberatsweiler                                                                                                                                 
+    21;  523; 47.6122;  9.7083;20030410;20071231;Achberg-Doberatsweiler                                                                                                                                 
+    21;  498; 47.6097;  9.7147;20080201;20090324;Achberg-Doberatsweiler                                                                                                                                 
+    21;  498; 47.6105;  9.6983;20090325;        ;Achberg-Doberatsweiler                                                                                                                                 

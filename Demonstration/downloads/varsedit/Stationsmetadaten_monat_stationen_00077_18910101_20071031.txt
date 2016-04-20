@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    77;   90; 51.9917;  9.8194;19870901;20071031;Alfeld/Leine                                                                                                                                           

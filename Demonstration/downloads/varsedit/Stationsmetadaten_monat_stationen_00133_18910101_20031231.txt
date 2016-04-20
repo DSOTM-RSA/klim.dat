@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   133;  530; 48.7359;  8.7493;19900701;20031231;Althengstett-Ottenbronn                                                                                                                                

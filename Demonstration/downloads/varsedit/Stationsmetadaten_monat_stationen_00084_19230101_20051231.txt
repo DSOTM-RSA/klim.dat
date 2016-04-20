@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    84;  385; 49.2507; 11.2430;19530101;20051231;Allersberg                                                                                                                                             

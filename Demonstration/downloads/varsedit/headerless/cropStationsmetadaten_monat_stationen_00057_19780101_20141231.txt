@@ -1,0 +1,2 @@
+    57;  470; 48.4748; 11.1184;19750101;20010831;Hollenbach/Bayern-Schönbach                                                                                                                            
+    57;  457; 48.4798; 11.0520;20010901;        ;Hollenbach/Bayern-Schönbach                                                                                                                            

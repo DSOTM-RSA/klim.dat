@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    27;  657; 47.8167; 12.6167;19490201;19820630;Adelholzen, Bad                                                                                                                                        

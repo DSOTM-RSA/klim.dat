@@ -1,0 +1,3 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   159;  183; 49.6406;  9.2278;19680401;19960331;Amorbach                                                                                                                                               
+   159;  181; 49.6403;  9.2295;19960401;20030731;Amorbach                                                                                                                                               

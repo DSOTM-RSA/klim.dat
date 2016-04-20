@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    31;   25; 53.2833; 10.4333;19510101;19901231;Adendorf                                                                                                                                               

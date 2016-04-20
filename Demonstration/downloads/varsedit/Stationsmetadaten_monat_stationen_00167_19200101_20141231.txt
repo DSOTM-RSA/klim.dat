@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   167;   12; 53.8509; 13.6824;19200101;20031231;Anklam                                                                                                                                                 
+   167;    9; 53.8415; 13.6838;20040103;20110903;Anklam                                                                                                                                                 
+   167;    9; 53.8412; 13.6846;20110904;        ;Anklam                                                                                                                                                 

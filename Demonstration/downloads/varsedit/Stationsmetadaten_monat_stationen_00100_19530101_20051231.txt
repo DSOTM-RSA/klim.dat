@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   100;   85; 51.6504; 14.0318;19950101;20051231;Altdöbern                                                                                                                                              

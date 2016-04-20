@@ -1,0 +1,10 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    19;  374; 48.8900; 10.0000;19070101;19330907;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  389; 48.8932; 10.0094;19330908;19380930;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  394; 48.8932; 10.0085;19381001;19501207;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  389; 48.8932; 10.0094;19501208;19510731;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  389; 48.8934; 10.0088;19510801;19890331;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  370; 48.8946; 10.0046;19890401;19920630;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  370; 48.8946; 10.0046;19920701;20071031;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  395; 48.8959; 10.0232;20071101;20100228;Abtsgmünd-Neubronn                                                                                                                                     
+    19;  471; 48.8796;  9.9707;20100301;        ;Abtsgmünd-Neubronn                                                                                                                                     

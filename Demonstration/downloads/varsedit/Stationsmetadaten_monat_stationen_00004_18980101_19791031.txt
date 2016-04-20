@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+     4;  243; 50.7683;  6.1207;19510101;19791101;Aachen-Brand                                                                                                                                           

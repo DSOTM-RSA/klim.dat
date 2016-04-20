@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    61;  339; 48.8443; 12.6171;19750701;19780831;Aiterhofen                                                                                                                                             

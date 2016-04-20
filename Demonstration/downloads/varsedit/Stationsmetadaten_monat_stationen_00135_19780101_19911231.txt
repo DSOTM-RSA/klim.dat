@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   135;  232; 50.9333; 12.3500;19770803;19911231;Altkirchen                                                                                                                                             

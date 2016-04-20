@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    97;   50; 52.4275; 14.4420;19850101;20051231;Alt Zeschdorf                                                                                                                                          

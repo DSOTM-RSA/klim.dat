@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    56;  444; 48.4500; 11.1333;19721211;19741231;Aichach                                                                                                                                                

@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   169;  630; 50.5667; 13.0167;19350101;19670630;Annaberg-Buchholz                                                                                                                                      
+   169;  630; 50.5674; 13.0173;19670701;19690627;Annaberg-Buchholz                                                                                                                                      
+   169;  630; 50.5730; 13.0053;19690628;20021231;Annaberg-Buchholz                                                                                                                                      

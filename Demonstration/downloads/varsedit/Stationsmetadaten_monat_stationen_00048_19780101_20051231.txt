@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    48;  410; 49.8364; 11.4025;19730920;20051231;Ahorntal-Kirchahorn                                                                                                                                    

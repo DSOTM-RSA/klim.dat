@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    67;  511; 49.6667; 12.3000;19380310;19701231;Albersrieth                                                                                                                                            

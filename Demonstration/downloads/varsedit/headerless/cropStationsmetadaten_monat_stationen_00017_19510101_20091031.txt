@@ -1,0 +1,2 @@
+    17;  380; 48.8421; 11.8194;19650401;20050606;Abensberg-Sandharlanden                                                                                                                                
+    17;  380; 48.8421; 11.8194;20050607;20091031;Abensberg-Sandharlanden                                                                                                                                

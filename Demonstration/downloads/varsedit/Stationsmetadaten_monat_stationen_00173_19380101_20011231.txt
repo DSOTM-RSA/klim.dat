@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   173;  200; 49.2028;  7.9719;19630301;20011231;Annweiler                                                                                                                                              

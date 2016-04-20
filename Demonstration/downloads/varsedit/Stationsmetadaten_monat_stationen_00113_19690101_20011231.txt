@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   113;  425; 51.7365; 10.9569;19900901;20011231;Altenbrak-Todtenrode                                                                                                                                   

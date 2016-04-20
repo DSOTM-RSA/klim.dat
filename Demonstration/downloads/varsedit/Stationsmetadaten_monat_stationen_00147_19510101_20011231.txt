@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   147;    9; 53.7171; 13.8351;19700701;20011231;Altwigshagen                                                                                                                                           

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   108;  635; 51.8333; 10.5333;19610101;19950630;Altenau-Bastesiedlung                                                                                                                                  

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   162;  690; 47.8013; 12.8984;19380401;20051231;Anger-Oberhögl                                                                                                                                         

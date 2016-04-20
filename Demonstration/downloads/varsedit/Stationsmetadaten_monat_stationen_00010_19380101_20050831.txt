@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    10;  378; 48.8857; 12.1079;19610601;20050831;Abbach,Bad-Dünzling                                                                                                                                    

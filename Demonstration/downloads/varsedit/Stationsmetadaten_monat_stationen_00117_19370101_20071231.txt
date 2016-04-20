@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   117;  520; 50.5605; 10.7179;19770412;20071231;Altendambach                                                                                                                                           

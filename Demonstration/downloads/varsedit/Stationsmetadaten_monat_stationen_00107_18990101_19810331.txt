@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   107;  460; 51.8000; 10.4333;19310101;19810406;Altenau (A)                                                                                                                                            

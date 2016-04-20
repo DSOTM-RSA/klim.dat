@@ -1,0 +1,3 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   140;   35; 52.6861; 11.4272;19700101;20070630;Altmersleben                                                                                                                                           
+   140;   35; 52.6861; 11.4272;20070701;        ;Altmersleben                                                                                                                                           

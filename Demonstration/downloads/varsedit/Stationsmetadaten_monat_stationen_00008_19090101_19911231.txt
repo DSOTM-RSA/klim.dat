@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+     8;  307; 50.2546;  8.1310;19540525;19911231;Aarbergen-Panrod                                                                                                                                       

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    23;   28; 53.0160;  9.0411;18910501;        ;Achim                                                                                                                                                  

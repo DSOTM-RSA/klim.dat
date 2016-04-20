@@ -1,2 +1,0 @@
-ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/climate/monthly/more_precip/historical/monatswerte_RR_00001_18910101_19860630_hist.zip
-

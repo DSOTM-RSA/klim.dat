@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   138;  430; 48.8821; 11.7114;19580101;19900630;Altmannstein-Laimerstadt                                                                                                                               

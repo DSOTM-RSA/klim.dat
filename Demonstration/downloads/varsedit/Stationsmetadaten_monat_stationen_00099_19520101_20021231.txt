@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    99;  185; 52.0728; 11.2475;19540301;20021231;Altbrandsleben                                                                                                                                         

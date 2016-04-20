@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   128;  490; 49.0900; 12.3000;19370101;19960831;Altenthann                                                                                                                                             
+   128;  518; 49.0951; 12.3032;19960901;20021203;Altenthann                                                                                                                                             
+   128;  518; 49.0951; 12.3032;20021204;        ;Altenthann                                                                                                                                             

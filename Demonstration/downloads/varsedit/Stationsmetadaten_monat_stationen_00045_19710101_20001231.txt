@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    45;  298; 51.3740;  9.4042;19711101;20001231;Ahnatal-Weimar                                                                                                                                         

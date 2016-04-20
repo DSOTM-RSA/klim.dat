@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    33;   93; 52.0286; 10.9994;19920401;20021231;Aderstedt                                                                                                                                              

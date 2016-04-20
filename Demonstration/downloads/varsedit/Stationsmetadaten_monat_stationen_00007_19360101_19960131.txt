@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+     7;  473; 48.8140; 10.1285;19770922;19960131;Aalen-Unterkochen                                                                                                                                      

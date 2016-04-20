@@ -1,0 +1,7 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    20;  362; 48.9179;  9.8899;19361201;19680729;Abtsgmünd-Untergröningen                                                                                                                               
+    20;  421; 48.9109;  9.8907;19680730;19770531;Abtsgmünd-Untergröningen                                                                                                                               
+    20;  441; 48.9087;  9.8930;19770601;19900531;Abtsgmünd-Untergröningen                                                                                                                               
+    20;  448; 48.9090;  9.8888;19900601;20010214;Abtsgmünd-Untergröningen                                                                                                                               
+    20;  448; 48.9090;  9.8888;20010215;20030810;Abtsgmünd-Untergröningen                                                                                                                               
+    20;  432; 48.9220;  9.9127;20030811;        ;Abtsgmünd-Untergröningen                                                                                                                               

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   120;   50; 52.9136; 13.7118;19800401;20051231;Altenhof                                                                                                                                               

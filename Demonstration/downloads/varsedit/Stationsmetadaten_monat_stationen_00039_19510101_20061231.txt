@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    39;   29; 53.0585;  9.3092;19840901;20061231;Ahausen                                                                                                                                                

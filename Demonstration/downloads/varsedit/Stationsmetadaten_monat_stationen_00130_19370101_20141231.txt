@@ -1,0 +1,5 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   130;  295; 49.7333;  9.7667;19590406;19690531;Altertheim-Oberaltertheim                                                                                                                              
+   130;  287; 49.7333;  9.7667;19690601;19841130;Altertheim-Oberaltertheim                                                                                                                              
+   130;  285; 49.7281;  9.7611;19841201;20000731;Altertheim-Oberaltertheim                                                                                                                              
+   130;  300; 49.7283;  9.7692;20000801;        ;Altertheim-Oberaltertheim                                                                                                                              

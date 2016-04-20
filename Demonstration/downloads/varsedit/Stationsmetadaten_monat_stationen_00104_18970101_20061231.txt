@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   104;  196; 51.2856;  7.6922;19790620;20061231;Altena in Westfalen                                                                                                                                    

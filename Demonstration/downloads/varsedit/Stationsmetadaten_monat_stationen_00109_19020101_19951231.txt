@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   109;  800; 51.8012; 10.5379;19950301;19951231;Altenau-Torfhaus/Harz                                                                                                                                  

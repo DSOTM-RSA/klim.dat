@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    15;  390; 49.2346; 10.9668;19700723;        ;Abenberg                                                                                                                                               

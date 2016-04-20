@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   122;   61; 53.1471; 10.6195;19841101;20061231;Altenmedingen-Eddelstorf                                                                                                                               

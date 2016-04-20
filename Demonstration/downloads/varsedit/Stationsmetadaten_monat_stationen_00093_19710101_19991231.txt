@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    93;  269; 50.7691;  9.2542;19680528;19991231;Alsfeld-Reibertenrod                                                                                                                                   

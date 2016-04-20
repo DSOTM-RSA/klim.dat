@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    52;   46; 53.6623; 10.1990;19730101;20011231;Ahrensburg-Wulfsdorf                                                                                                                                   

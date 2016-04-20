@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   101;  423; 49.3864; 11.3705;19930701;20020531;Altdorf                                                                                                                                                

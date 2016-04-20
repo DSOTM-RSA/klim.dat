@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    96;   40; 52.9479; 12.8622;19940501;20011231;Alt Ruppin                                                                                                                                             

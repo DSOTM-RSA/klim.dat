@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   127;  594; 48.6171;  8.6501;19941101;20021231;Altensteig-Wart                                                                                                                                        

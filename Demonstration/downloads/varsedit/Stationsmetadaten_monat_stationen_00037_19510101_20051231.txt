@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    37;  470; 48.4612; 10.9795;19930201;20051231;Affing                                                                                                                                                 

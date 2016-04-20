@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    25;  474; 48.7667;  9.6000;19780701;19790101;Adelberg                                                                                                                                               

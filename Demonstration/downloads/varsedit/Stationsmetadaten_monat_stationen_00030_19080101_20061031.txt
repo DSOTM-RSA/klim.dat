@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    30;     ; 49.4000;  9.4000;19310101;19341231;Adelsheim                                                                                                                                              
+    30;  235; 49.4017;  9.3925;19350101;20000229;Adelsheim                                                                                                                                              
+    30;  260; 49.4064;  9.3914;20000301;20061031;Adelsheim                                                                                                                                              

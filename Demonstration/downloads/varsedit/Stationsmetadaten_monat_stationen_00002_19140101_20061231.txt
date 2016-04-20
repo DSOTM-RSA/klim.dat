@@ -1,0 +1,3 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+     2;  142; 50.8060;  6.0986;19140101;19821231;Aachen (Kläranlage)                                                                                                                                    
+     2;  138; 50.8066;  6.0996;19830101;20061231;Aachen (Kläranlage)                                                                                                                                    

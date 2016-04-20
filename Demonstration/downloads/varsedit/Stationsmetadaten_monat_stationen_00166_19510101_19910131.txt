@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   166;  108; 51.4667; 11.9000;19700428;19910701;Angersdorf                                                                                                                                             

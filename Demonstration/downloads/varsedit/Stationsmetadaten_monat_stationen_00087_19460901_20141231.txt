@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    87;  162; 51.0931; 11.0453;19460101;19821231;Alperstedt                                                                                                                                             
+    87;  159; 51.0956; 11.0436;19830101;20010103;Alperstedt                                                                                                                                             
+    87;  158; 51.0951; 11.0486;20031202;        ;Alperstedt                                                                                                                                             

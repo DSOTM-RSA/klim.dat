@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    50;  549; 51.8500; 10.4667;19410101;19660501;Ahrendsberg                                                                                                                                            

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+     9;  200; 50.2655;  8.0516;19920515;20101231;Aarbergen-Rückershausen                                                                                                                                

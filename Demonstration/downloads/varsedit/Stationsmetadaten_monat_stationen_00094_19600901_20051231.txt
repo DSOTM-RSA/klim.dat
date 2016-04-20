@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    94;   52; 53.3096; 11.3133;19910401;20051231;Alt Krenzlin-Krenzliner Hütte                                                                                                                          

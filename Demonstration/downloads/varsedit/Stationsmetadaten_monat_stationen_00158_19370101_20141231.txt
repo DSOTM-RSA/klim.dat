@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   158;  210; 50.7840;  8.9545;19410101;        ;Amöneburg-Rüdigheim                                                                                                                                    

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   144;    6; 52.7642; 14.1664;19681101;20031231;Altreetz                                                                                                                                               

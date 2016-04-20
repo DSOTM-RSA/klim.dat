@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   172;  395; 52.2486;  9.5056;19690411;19911130;Annaturm                                                                                                                                               

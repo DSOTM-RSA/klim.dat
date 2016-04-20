@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   124;  205; 51.2515; 11.5644;19561201;20061031;Bibra, Bad-Altenroda                                                                                                                                   
+   124;  267; 51.2387; 11.5769;20061101;20090630;Bibra, Bad-Altenroda                                                                                                                                   
+   124;  267; 51.2387; 11.5769;20090701;        ;Bibra, Bad-Altenroda                                                                                                                                   

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    82;   18; 53.0333;  9.1833;19510101;19701231;Allerdorf                                                                                                                                              

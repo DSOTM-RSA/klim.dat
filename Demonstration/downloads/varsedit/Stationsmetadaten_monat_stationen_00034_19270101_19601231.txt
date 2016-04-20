@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    34;  220; 49.1667;  9.4500;19371101;19571231;Adolzfurt                                                                                                                                              

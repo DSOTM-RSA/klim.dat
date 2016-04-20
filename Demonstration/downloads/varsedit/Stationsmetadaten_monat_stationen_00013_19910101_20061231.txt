@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    13;  300; 51.6154; 11.2892;19681101;20061231;Abberode                                                                                                                                               

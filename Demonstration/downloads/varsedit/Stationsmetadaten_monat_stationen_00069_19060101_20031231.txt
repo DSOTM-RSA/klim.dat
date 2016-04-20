@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    69;  911; 48.2413;  8.9329;19761210;20031231;Albstadt-Burgfelden                                                                                                                                    

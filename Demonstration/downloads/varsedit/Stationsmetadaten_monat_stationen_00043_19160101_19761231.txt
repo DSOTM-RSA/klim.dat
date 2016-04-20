@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    43;    3; 53.7000;  8.7833;19310101;19770531;Ahlen (Falkenberger Moor)                                                                                                                              

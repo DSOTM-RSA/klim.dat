@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    81;  378; 51.0590;  8.6521;19990415;19991231;Allendorf/Eder-Osterfeld                                                                                                                               

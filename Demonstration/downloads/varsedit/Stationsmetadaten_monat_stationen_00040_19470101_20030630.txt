@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    40;    5; 53.6674; 14.1823;19590101;20031231;Ahlbeck                                                                                                                                                

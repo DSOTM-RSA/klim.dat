@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   153;  530; 48.0027; 12.3132;19820301;20051231;Amerang-Kammer                                                                                                                                         

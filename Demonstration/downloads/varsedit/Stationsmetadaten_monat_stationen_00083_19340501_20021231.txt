@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    83;  135; 52.2130; 11.1414;19930101;20021231;Alleringersleben                                                                                                                                       

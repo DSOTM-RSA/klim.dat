@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    38;   52; 52.0900;  7.0095;18910801;20061231;Ahaus (Wieselweg)                                                                                                                                      

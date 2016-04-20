@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    64;   56; 51.8552; 12.0434;18900801;19890630;Aken/Elbe                                                                                                                                              
+    64;   55; 51.8506; 12.0491;19890701;20070630;Aken/Elbe                                                                                                                                              
+    64;   55; 51.8506; 12.0491;20070701;        ;Aken/Elbe                                                                                                                                              

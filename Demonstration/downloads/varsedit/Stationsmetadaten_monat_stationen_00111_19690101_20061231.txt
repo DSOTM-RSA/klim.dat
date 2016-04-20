@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   111;  300; 51.7273; 10.9362;19700501;20061231;Altenbrak                                                                                                                                              

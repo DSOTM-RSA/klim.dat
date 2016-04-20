@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   143;  505; 48.4012; 11.1984;19930812;20051231;Altomünster-Wollomoos                                                                                                                                  

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   139;  530; 48.9437; 11.5694;19720101;20051231;Altmannstein-Pondorf                                                                                                                                   

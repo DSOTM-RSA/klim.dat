@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    12;   61; 52.3814; 10.1860;19961001;20061231;Abbensen                                                                                                                                               

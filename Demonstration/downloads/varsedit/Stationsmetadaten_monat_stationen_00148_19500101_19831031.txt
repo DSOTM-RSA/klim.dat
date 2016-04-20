@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   148;   33; 53.8000;  9.9000;19580101;19831031;Alveslohe                                                                                                                                              

@@ -1,0 +1,4 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    65;  513; 48.1094; 12.1049;19380401;19971211;Albaching                                                                                                                                              
+    65;  513; 48.1094; 12.1049;19971212;20000730;Albaching                                                                                                                                              
+    65;  513; 48.1094; 12.1049;20000731;20040531;Albaching                                                                                                                                              

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   134;  785; 49.3333; 12.7667;19791015;19851231;Althütte bei Waldmünchen                                                                                                                               

@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    80;  195; 51.0518;  9.6617;19930819;20041231;Alheim-Heinebach                                                                                                                                       

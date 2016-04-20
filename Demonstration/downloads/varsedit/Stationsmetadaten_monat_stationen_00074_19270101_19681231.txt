@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    74;  428; 49.0500; 10.8667;19470801;19690101;Alesheim                                                                                                                                               

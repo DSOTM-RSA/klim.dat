@@ -1,0 +1,3 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   132;  750; 49.7692; 12.3888;19531210;19590430;Altglashütte                                                                                                                                           
+   132;  750; 49.7725; 12.3891;19590501;19870930;Altglashütte                                                                                                                                           

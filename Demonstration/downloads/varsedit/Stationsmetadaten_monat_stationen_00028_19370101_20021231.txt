@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    28;  470; 48.9540; 10.0060;19361108;20021231;Adelmannsfelden                                                                                                                                        

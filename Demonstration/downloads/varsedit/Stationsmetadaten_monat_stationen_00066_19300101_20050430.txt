@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    66;   40; 54.1500;  9.2833;19310101;20050430;Albersdorf                                                                                                                                             

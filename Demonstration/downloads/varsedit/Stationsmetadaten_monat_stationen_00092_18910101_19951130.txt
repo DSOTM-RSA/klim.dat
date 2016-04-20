@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+    92;  395; 50.7638;  9.4031;19890704;19951130;Alsfeld-Lingelbach                                                                                                                                     

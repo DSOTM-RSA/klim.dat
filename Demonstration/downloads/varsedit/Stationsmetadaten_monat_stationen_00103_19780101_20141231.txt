@@ -1,0 +1,2 @@
+Stations_id; Stationshoehe; Geogr.Breite; Geogr.Laenge; von_datum; bis_datum; Stationsname;                                                                                                             
+   103;  364; 48.8960; 12.2170;19991001;        ;Hagelstadt                                                                                                                                             
