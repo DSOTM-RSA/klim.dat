@@ -77,27 +77,33 @@ rm(data.df); rm(data.df.FF);
 #########################
 # Quick Look at Data
 
-xyplot(precip ~ date.start |station.id , data = dt, layout=c(1,1,1),as.table=FALSE,
-       strip=TRUE, pch = 16, type=c("l"),col.line="blue",horizontal=FALSE, aspect="free",
-                                               ylab = "Precipation (mm)", xlab = "Years",
-                                               panel = function (x,y, ...){
-                                               panel.xyplot(x,y, ...)
-                                               }) # regular labels, order is by default 'increasing'
+
+#--->>> merging id data
+new<-read.table("stat.csv",header=TRUE, sep =",")
+dat = as.data.table(dt.arranged)
+dat2 = as.data.table(new)
+dat2$station.id <-dat2$stat_id
+
+newdt<-merge(dat, dat2, by="station.id")
+
+write.dir <- "downloads/product/figs/"
+
+
+ii <- unique(newdt$locale)
+i<-unique(newdt$station.id)
+
+n<-1
                                                
-write.dir <- "figs/"
-                                               
-      i = 1
-                                               
-for (i in i:150){                                               
-      png(filename = paste(write.dir,"F",i,".png",sep=""))
-      print(xyplot(precip ~ date.start |station.id , data = dt, layout=c(1,1,1),as.table=FALSE,
-      strip=TRUE, pch = 16, type=c("l"),col.line="blue",horizontal=FALSE, aspect="free",
-      ylab = "Precipation (mm)", xlab = "Years",
-      panel = function (x,y, ...){
-      panel.xyplot(x,y, ...)
-                  }))
+for (n in n:150){                                               
+png(filename = paste(write.dir,"Fig-",ii[n],".png",sep=""))
+print(xyplot(precip ~ date.start |locale , data = newdt, layout=c(1,1,ii[n]),as.table=FALSE,
+strip=TRUE, pch = 16, type=c("l"),col.line="blue",horizontal=FALSE, aspect="free",
+ylab = "Precipation (mm)", xlab = "Years",
+panel = function (x,y, ...){
+panel.xyplot(x,y, ...)
+}))
 dev.off()
-    }
+}
 
 
 
@@ -129,7 +135,10 @@ tablesmin[[1]]$stat<-as.character(tablesmin[[1]]$STATIONS_ID)
 out$stat <-as.factor(out$STATIONS_ID)
 
 
+new<-read.table("stat.csv",header=TRUE, sep =",")
+dataTable <- read.table("names.txt",header=T)
 
+read.csv("stat.csv")
 
 
 
