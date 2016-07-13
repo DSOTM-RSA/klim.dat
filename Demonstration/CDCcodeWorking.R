@@ -32,6 +32,10 @@ library(lattice)
 files <- dir(pattern = '*.txt', full.names = TRUE)
 tables.of.data <- lapply(files, read.table,sep=";",header=TRUE,fill=TRUE)
 
+processed <- files %>% lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
+lapply(., function(x) x[complete.cases(x),])
+
+lapply(list, function)
 
 # correcting for false factors in data
 
