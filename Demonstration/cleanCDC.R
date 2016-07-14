@@ -9,7 +9,7 @@ library(lattice)
 library(magrittr)
 li
 
-# Reead in and Process Files
+# Read in and Process Files
 files <- dir(pattern = '*.txt', full.names = TRUE)
 
 pro.df <- files %>%  lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
