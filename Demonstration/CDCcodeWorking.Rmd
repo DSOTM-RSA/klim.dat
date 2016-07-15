@@ -1,47 +1,76 @@
-# CDC code steps
+---
+title: "German Climate Data"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+	
+	
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
 
-# count files in a dir
-ls -1 | wc -l
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+		   cache=FALSE,
+		   prompt=FALSE,
+		   tidy=FALSE,
+		   comment=NA,
+		   message=FALSE,
+		   warning=FALSE)
+opts_knit$set(width=75)
+```
 
-# trim html code for filenames
-awk -F\" '{print $2}' source.txt > names.txt
-
-
-# create filenames using prefix.txt
-awk '{print "ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/climate/monthly/more_precip/historical/" $0;}' names.txt > filelist.txt
-
-
-# download all files
-wget -i filelist.txt 
-
-# extract all zips
-for i in *.zip; do unzip "$i"; done
-
-# copying files of same name
-cp [S]* outputfolder
-
-##############################################
-# Processing Code
-
+## Load Libraries
+```{r load_libs, echo=FALSE, cache=FALSE}
+library(plyr)
 library(dplyr)
 library(tidyr)
-library(lattice)
+```
 
-# read in files
+## Pre-processing
+```
+ls -1 | wc -l							# count files in a dir
+awk -F\" '{print $2}' source.txt > names.txt		# trim html code for filenames
+awk '{print "ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/climate/monthly/more_precip/historical/" $0;}' names.txt > filelist.txt							# create filenames using prefix.txt
+```
 
+## File Retrieval
+```
+wget -i filelist.txt		# download all files
+for i in *.zip; do unzip "$i"; done		# extract all zips
+cp [S]* outputfolder		# copying files of same name
+```
+
+
+# Read in Data
+``` {r dat-read, echo=TRUE}
 files <- dir(pattern = '*.txt', full.names = TRUE)
 tables.of.data <- lapply(files, read.table,sep=";",header=TRUE,fill=TRUE)
+```
 
-processed <- files %>% lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
-lapply(., function(x) x[complete.cases(x),])
-
-lapply(list, function)
-
+# Subset and Trim
+```{r dat-subset, echo=TRUE}
 # correcting for false factors in data
 
 fix.factors <-function(df) {
   df[complete.cases(df),]
 }
+tables.of.data.trimmed<-lapply(tables.of.data,fix.factors)
+# subset columns of interest
+tables.subset<-lapply(tables.of.data.trimmed,"[",1:6)
+# remove un-needed datafiles
+rm(tables.of.data.trimmed); rm(tables.of.data)
+
+```
+
+
+
+
+
+
 
 tables.of.data.trimmed<-lapply(tables.of.data,fix.factors)
 
@@ -84,44 +113,11 @@ rm(data.df); rm(data.df.FF);
 
 #--->>> merging id data
 new<-read.table("stat.csv",header=TRUE, sep =",")
-
-library(data.table)
-dt$stat_id <- dt$station.id
-df.join <- select(dt,date.start:precip)
-dat = as.data.table(df.join)
-
+dat = as.data.table(dt.arranged)
 dat2 = as.data.table(new)
 dat2$station.id <-dat2$stat_id
 
-labels.join <- select(dat2,lat:station.id)
-
-merged.df<-merge(dat,labels.join, by="station.id")
-
-merged.df <- merged.df %>% select(.,-date_start,-date_end)
-
-
-####
-# one place
-one.location <-filter(merged.df, locale == "Aach")
-
-
-
-group.locale.time <- merged.df %>% group_by(.,locale)
-
-
-###
-library(fields)
-object<-list(x=labels.join$lon,y=labels.join$lat,z=new$height)
-object$z[1]<-0
-
-temp2<- seq(6,15,,45)
-temp3<- seq(0,600,,100)
-make.surface.grid( list( temp2,temp3))-> loc2
-interp.surface( object, loc2)-> dem.heights
-image.plot( as.surface( loc2, dem.heights))
-
-##
-
+newdt<-merge(dat, dat2, by="station.id")
 
 write.dir <- "downloads/product/figs/"
 
@@ -141,10 +137,6 @@ panel.xyplot(x,y, ...)
 }))
 dev.off()
 }
-
-#### gridding
-
-
 
 
 
