@@ -80,11 +80,44 @@ rm(data.df); rm(data.df.FF);
 
 #--->>> merging id data
 new<-read.table("stat.csv",header=TRUE, sep =",")
-dat = as.data.table(dt.arranged)
+
+library(data.table)
+dt$stat_id <- dt$station.id
+df.join <- select(dt,date.start:precip)
+dat = as.data.table(df.join)
+
 dat2 = as.data.table(new)
 dat2$station.id <-dat2$stat_id
 
-newdt<-merge(dat, dat2, by="station.id")
+labels.join <- select(dat2,lat:station.id)
+
+merged.df<-merge(dat,labels.join, by="station.id")
+
+merged.df <- merged.df %>% select(.,-date_start,-date_end)
+
+
+####
+# one place
+one.location <-filter(merged.df, locale == "Aach")
+
+
+
+group.locale.time <- merged.df %>% group_by(.,locale)
+
+
+###
+library(fields)
+object<-list(x=labels.join$lon,y=labels.join$lat,z=new$height)
+object$z[1]<-0
+
+temp2<- seq(6,15,,45)
+temp3<- seq(0,600,,100)
+make.surface.grid( list( temp2,temp3))-> loc2
+interp.surface( object, loc2)-> dem.heights
+image.plot( as.surface( loc2, dem.heights))
+
+##
+
 
 write.dir <- "downloads/product/figs/"
 
@@ -104,6 +137,10 @@ panel.xyplot(x,y, ...)
 }))
 dev.off()
 }
+
+#### gridding
+
+
 
 
 
