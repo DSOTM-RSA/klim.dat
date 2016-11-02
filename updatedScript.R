@@ -22,6 +22,8 @@ abs.years<-floor(diff_in_years)
 months_diff = as.double(substring(date.str, 5, 6)) - as.double(substring(date.str[1], 5, 6))
 total_months = floor(diff_in_years)*12 + months_diff
 
+frame <- mutate(pro.df,frameID = total_months)
+
 
 
 out=strtrim(pro.df$date.start,6)
@@ -61,3 +63,4 @@ labels.join <- select(dat2,lat:station.id)
 merged.df<-merge(dat,labels.join, by="station.id")
 
 frame <- mutate(merged.df,frameID = date_start-min(date_start)+1)
+
