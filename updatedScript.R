@@ -3,7 +3,7 @@
 library(dplyr)
 library(tidyr)
 
-# Read in and Process Files
+# read in and process files ----
 files <- dir(pattern = '*.txt', full.names = TRUE)
 
 pro.df <- files %>%  lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
@@ -11,7 +11,6 @@ pro.df <- files %>%  lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>%
   .[complete.cases(.),] %>% setNames(c('station.id','date.start','date.end','quality','type','precip'))
 
 # adjusting strings
-
 date.str <- as.character(pro.df$date.start)
  
 date.beg <-as.character(pro.df$date.start) %>% as.Date(., format='%Y%m%d')
@@ -22,45 +21,44 @@ abs.years<-floor(diff_in_years)
 months_diff = as.double(substring(date.str, 5, 6)) - as.double(substring(date.str[1], 5, 6))
 total_months = floor(diff_in_years)*12 + months_diff
 
-frame <- mutate(pro.df,frameID = total_months)
+frame <- mutate(pro.df,frameID = total_months) %>% .[-114369,] # trim to remove erroneous last obs
 
+# convert factors to numeric and fix NaN
+frame$station.id <- as.factor(frame$station.id)
+frame$station.id <- as.numeric(frame$station.id)
+frame$precip[frame$precip==-999] <- NA
+frame$precip[frame$precip<=0] <- NA
 
-
-out=strtrim(pro.df$date.start,6)
-pro.df$date <-out
-pro.df$nums <- as.numeric(pro.df$date)
-pro.df$dateDF <-pro.df$date %>% as.Date(., format='%Y%m')
-
-frame <- mutate(pro.df, frameID = nums-min(nums)+1)
-frame <- mutate(merged.df,frameID = date_start-min(date_start)+1)
-
-%>% as.Date(., format='%Y%m')
-pro.df$date.end <-as.character(pro.df$date.end) %>% as.Date(., format='%Y%m%d')
-
-
-pro.df$station.id <- as.factor(pro.df$station.id)
-pro.df$precip[pro.df$precip==-999] <- NA
-
-
-pro.df.ts <- as.ts(pro.df)
-
-dt <- pro.df
-
-
-# merging id data
-new<-read.table("stat.csv",header=TRUE, sep =",")
-
-new$station.id <-new$stat_id
-
+# merging with station meta data
+stat.meta<-read.table("stat.csv",header=TRUE, sep =",")
+stat.meta$station.id <-stat.meta$stat_id %>% as.numeric(.)
 
 library(data.table)
 
-dat = as.data.table(dt)
-dat2 = as.data.table(new)
+dat.var = as.data.table(frame)
+dat.meta = as.data.table(stat.meta)
 
-dat2$station.id <-dat2$stat_id
-labels.join <- select(dat2,lat:station.id)
-merged.df<-merge(dat,labels.join, by="station.id")
+merged.df<-merge(dat.var,dat.meta, by="station.id")
 
-frame <- mutate(merged.df,frameID = date_start-min(date_start)+1)
+merged.df$precip[is.na(merged.df$precip)] <- 0
+
+
+# plotting ----
+
+library(sp)
+
+dat <- merged.df
+coordinates(dat) <- ~lon+lat
+proj4string(dat) <- CRS("+proj=longlat +datum=WGS84")
+
+library(ggmap)    # loads ggplot2 as well
+map <- get_map(location=rowMeans(bbox(dat)), zoom=5)   # get Google map
+ggmap(map) + 
+  geom_point(data=as.data.frame(dat), aes(lon,lat,fill=height), 
+             color="grey70", size=3.5, shape=21)+
+  scale_fill_gradientn(colours=rev(heat.colors(5)))
+
+
+out <- split(merged.df,as.factor(merged.df$frameID))
+
 
