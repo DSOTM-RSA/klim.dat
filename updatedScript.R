@@ -55,10 +55,62 @@ library(ggmap)    # loads ggplot2 as well
 map <- get_map(location=rowMeans(bbox(dat)), zoom=5)   # get Google map
 ggmap(map) + 
   geom_point(data=as.data.frame(dat), aes(lon,lat,fill=height), 
-             color="grey70", size=3.5, shape=21)+
+             color="grey70", size=3.5, shape=21) +
   scale_fill_gradientn(colours=rev(heat.colors(5)))
 
 
-out <- split(merged.df,as.factor(merged.df$frameID))
+out <- split(merged.df,as.factor(merged.df$frameID)) # get into a list : apply interp to this...
+
+# interpolation
+library(akima)
+
+df <- merged.df %>% filter(.,frameID==2000)
+fld <- with(df, interp(x = lon, y = lat, z = precip))
+filled.contour(x = fld$x,
+               y = fld$y,
+               z = fld$z,
+               color.palette =
+                 colorRampPalette(c("white", "blue")),
+               xlab = "Longitude",
+               ylab = "Latitude",
+               main = "Germany Rainfall September 2010",
+               key.title = title(main = "Rain (mm)", cex.main = 1))
+
+df.sta <- merged.df %>% filter(.,frameID==600)
+sta<-with(df.sta, interp(x = lon, y = lat, z = precip))
+
+filled.contour(x = sta$x,
+               y = sta$y,
+               z = sta$z,
+               color.palette =
+                 colorRampPalette(c("white", "blue")),
+               xlab = "Longitude",
+               ylab = "Latitude",
+               main = "Germany Rainfall January 1894",
+               key.title = title(main = "Rain (mm)", cex.main = 1))
+
+
+###
+# Create a Grid 1
+x.range <- as.numeric(c(min(merged.df$lon), max(merged.df$lon)))  # min/max longitude of the interpolation area
+y.range <- as.numeric(c(min(merged.df$lat), max(merged.df$lat)))  # min/max latitude of the interpolation area
+
+grd <- expand.grid(x = seq(from = x.range[1], to = x.range[2], by = 0.25), y = seq(from = y.range[1], 
+                                                                                   to = y.range[2], by = 0.25))
+
+coordinates(grd) <- ~x + y
+gridded(grd) <- TRUE
+plot(grd, cex = 1.5, col = "grey")
+points(dat, pch = 1, col = "red", cex = 1)
+
+library(gstat)
+idw <- idw(formula = precip ~ 1, locations = dat, 
+           newdata = grd)  # apply idw model for the data
+
+idw.output = as.data.frame(idw)  # output is defined as a data table
+names(idw.output)[1:3] <- c("long", "lat", "var1.pred")  # give names to the modelled variables
+
+ggplot() + geom_tile(data = idw.output, aes(x = long, y = lat, fill = var1.pred))
+
 
 
