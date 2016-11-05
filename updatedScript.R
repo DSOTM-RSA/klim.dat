@@ -90,6 +90,41 @@ filled.contour(x = sta$x,
                key.title = title(main = "Rain (mm)", cex.main = 1))
 
 
+# using a list and getting a single result
+sub.df <- merged.df %>% filter(.,frameID>=600)
+sub.list <- split(sub.df,sub.df$frameID)
+results <- list()
+#results<-with(sub.list$`600`, interp(x = lon, y = lat, z = precip))
+
+i=1
+
+for (i in i:length(sub.list)){
+  results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = precip,duplicate = "mean"))
+}
+
+# and to plot 
+filled.contour(x = results[[2]]$x,
+                                 y = results[[2]]$y,
+                                 z = results[[2]]$z,
+                                color.palette =
+                                       colorRampPalette(c("white", "blue")),
+                                 xlab = "Longitude",
+                                 ylab = "Latitude",
+                                 main = "Germany Rainfall January 1894",
+                                 key.title = title(main = "Rain (mm)", cex.main = 1))
+
+x <- list(a=11,b=12,c=13) # Changed to list to address concerns in commments
+lapply(seq_along(x), function(y, n, i) { paste(n[[i]], y[[i]]) }, y=x, n=names(x))
+
+lapply(seq_along(sub.list),interp,x=lon,y=lat,z=precip)
+lapply(seq_along(sub.list), function(x,y,z,i) 
+  {interp(x=i$lon,y=i$lat,z=i$precip)})
+
+lapply(seq_along(sub.list), function(i) paste(names(sub.list)[[i]])) #works
+out<-lapply(seq_along(sub.list), function(i,x,y,z) with(sub.list[[i]],interp(x=lon,y=lat,z=precip))
+out<-lapply(seq_along(sub.list), function(i,x,y,z) with(sub.list[[i]],interp),x=lon,y=lat,z=precip)
+out<-lapply(seq_along(sub.list), function(x,y,z,i) {with(sub.list[[i]],interp)},x=lon,y=lat,z=precip)
+
 ###
 # Create a Grid 1
 x.range <- as.numeric(c(min(merged.df$lon), max(merged.df$lon)))  # min/max longitude of the interpolation area
