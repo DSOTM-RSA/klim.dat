@@ -3,6 +3,8 @@
 library(dplyr)
 library(tidyr)
 
+where<-getwd()
+
 # read in and process files ----
 files <- dir(pattern = '*.txt', full.names = TRUE)
 
@@ -30,7 +32,7 @@ frame$precip[frame$precip==-999] <- NA
 frame$precip[frame$precip<=0] <- NA
 
 # merging with station meta data
-stat.meta<-read.table("stat.csv",header=TRUE, sep =",")
+stat.meta<-read.table("Demonstration/stat.csv",header=TRUE, sep =",")
 stat.meta$station.id <-stat.meta$stat_id %>% as.numeric(.)
 
 library(data.table)
@@ -83,7 +85,7 @@ filled.contour(x = sta$x,
                y = sta$y,
                z = sta$z,
                color.palette =
-                 colorRampPalette(c("white", "blue")),
+                 colorRampPalette(c("white","blue")),zlim = c(0,100),
                xlab = "Longitude",
                ylab = "Latitude",
                main = "Germany Rainfall January 1894",
@@ -96,22 +98,29 @@ sub.list <- split(sub.df,sub.df$frameID)
 results <- list()
 #results<-with(sub.list$`600`, interp(x = lon, y = lat, z = precip))
 
+library(akima)
 i=1
 
 for (i in i:length(sub.list)){
   results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = precip,duplicate = "mean"))
+  
 }
 
-# and to plot 
-filled.contour(x = results[[2]]$x,
-                                 y = results[[2]]$y,
-                                 z = results[[2]]$z,
-                                color.palette =
-                                       colorRampPalette(c("white", "blue")),
-                                 xlab = "Longitude",
-                                 ylab = "Latitude",
-                                 main = "Germany Rainfall January 1894",
-                                 key.title = title(main = "Rain (mm)", cex.main = 1))
+i=1
+for (i in i:length(results)){
+  png(filename=paste0(where,"/maps/",i,"out.png"))
+      filled.contour(x = results[[i]]$x,
+                     y = results[[i]]$y,
+                     z = results[[i]]$z,
+                     color.palette =
+                       colorRampPalette(c("white", "blue")),zlim=c(0,150),
+                     xlab = "Longitude",
+                     ylab = "Latitude",
+                     key.title = title(main = "Rain (mm)", cex.main = 1))
+      dev.off()      
+  
+}
+
 
 x <- list(a=11,b=12,c=13) # Changed to list to address concerns in commments
 lapply(seq_along(x), function(y, n, i) { paste(n[[i]], y[[i]]) }, y=x, n=names(x))
