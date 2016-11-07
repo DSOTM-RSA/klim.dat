@@ -98,7 +98,7 @@ sub.list <- split(sub.df,sub.df$frameID)
 results <- list()
 #results<-with(sub.list$`600`, interp(x = lon, y = lat, z = precip))
 
-library(akima)
+
 i=1
 
 for (i in i:length(sub.list)){
@@ -106,6 +106,7 @@ for (i in i:length(sub.list)){
   
 }
 
+# output of image files to dir
 i=1
 for (i in i:length(results)){
   png(filename=paste0(where,"/maps/",i,"out.png"))
