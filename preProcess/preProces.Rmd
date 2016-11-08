@@ -1,0 +1,30 @@
+---
+title: "preProcess"
+output: html_notebook
+---
+
+# trim HTML source to extract names of data-sets
+```{bash}
+awk -F\" '{print $2}' source.txt > names.txt 
+```
+
+#  create filenames by appending prefix
+```{bash}
+awk '{print "ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/climate/monthly/more_precip/historical/" $0;}' names.txt > filelist.txt
+```
+
+# download all files using wget
+```{bash}
+wget -i filelist.txt 
+```
+
+# extract all zips
+```{bash}
+for i in *.zip; do unzip "$i"; done
+```
+
+# copying files of same name to given directory
+```{bash}
+cp [S]* outputfolder
+```
+
