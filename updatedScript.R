@@ -3,7 +3,7 @@
 library(dplyr)
 library(tidyr)
 
-where<-getwd()
+
 
 # read in and process files ----
 files <- dir(pattern = '*.txt', full.names = TRUE)
@@ -23,7 +23,7 @@ abs.years<-floor(diff_in_years)
 months_diff = as.double(substring(date.str, 5, 6)) - as.double(substring(date.str[1], 5, 6))
 total_months = floor(diff_in_years)*12 + months_diff
 
-frame <- mutate(pro.df,frameID = total_months) %>% .[-114369,] # trim to remove erroneous last obs
+frame <- mutate(pro.df,frameID = total_months)%>% .[-2364155,] # trim to remove erroneous last obs
 
 # convert factors to numeric and fix NaN
 frame$station.id <- as.factor(frame$station.id)
@@ -33,6 +33,7 @@ frame$precip[frame$precip<=0] <- NA
 
 # merging with station meta data
 stat.meta<-read.table("Demonstration/stat.csv",header=TRUE, sep =",")
+stat.meta  <-read.table("Demonstration/stations-single-all-meta.csv",header = TRUE, sep = ",")
 stat.meta$station.id <-stat.meta$stat_id %>% as.numeric(.)
 
 library(data.table)
@@ -43,6 +44,11 @@ dat.meta = as.data.table(stat.meta)
 merged.df<-merge(dat.var,dat.meta, by="station.id")
 
 merged.df$precip[is.na(merged.df$precip)] <- 0
+
+summary(merged.df)
+
+save(merged.df,file = "mergedDF.RData") # save merged file for later load
+
 
 
 # plotting ----
@@ -57,7 +63,7 @@ library(ggmap)    # loads ggplot2 as well
 map <- get_map(location=rowMeans(bbox(dat)), zoom=5)   # get Google map
 ggmap(map) + 
   geom_point(data=as.data.frame(dat), aes(lon,lat,fill=height), 
-             color="grey70", size=3.5, shape=21) +
+             color="grey70", size=0.5, shape=21) +
   scale_fill_gradientn(colours=rev(heat.colors(5)))
 
 
@@ -89,7 +95,7 @@ filled.contour(x = sta$x,
                xlab = "Longitude",
                ylab = "Latitude",
                main = "Germany Rainfall January 1894",
-               key.title = title(main = "Rain (mm)", cex.main = 1))
+               key.title = title(main = "Rain (mm)", cex.main = 1),xlim=c(7,15),ylim=c(48,54))
 
 
 # using a list and getting a single result
@@ -106,15 +112,18 @@ for (i in i:length(sub.list)){
   
 }
 
+where<-getwd()
+
 # output of image files to dir
+
 i=1
 for (i in i:length(results)){
-  png(filename=paste0(where,"/maps/",i,"out.png"))
+  png(filename=paste0(where,"/mapshigh/",i,"out.png"))
       filled.contour(x = results[[i]]$x,
                      y = results[[i]]$y,
                      z = results[[i]]$z,
                      color.palette =
-                       colorRampPalette(c("white", "blue")),zlim=c(0,150),
+                       colorRampPalette(c("white", "blue")),zlim=c(0,160),xlim=c(6,15),ylim=c(48,55),
                      xlab = "Longitude",
                      ylab = "Latitude",
                      key.title = title(main = "Rain (mm)", cex.main = 1))
