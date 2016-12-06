@@ -8,7 +8,7 @@ DONE:
 
 TODO: 
 - monthly anomalies
-- TS chacterization and clustering
+- TS characterization and clustering
 - highcharter shiny app 
 
 
