@@ -8,22 +8,15 @@ library(tidyr)
 # read in and process files ----
 files <- dir(pattern = '*.txt', full.names = TRUE)
 
-pro.df <- files %>%  lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
+raw.df <- files %>%  lapply(., read.table,sep=";",header=TRUE,fill=TRUE) %>% 
   lapply(., function(x) x[complete.cases(x),]) %>%  lapply(.,"[",1:6) %>% dplyr::bind_rows(.) %>% 
   .[complete.cases(.),] %>% setNames(c('station.id','date.start','date.end','quality','type','precip'))
 
-# adjusting strings
-date.str <- as.character(pro.df$date.start)
- 
-date.beg <-as.character(pro.df$date.start) %>% as.Date(., format='%Y%m%d')
-diff_in_days = difftime(date.beg, date.beg[1], units = "days")
-diff_in_years = as.double(diff_in_days)/365 # absolute years
-abs.years<-floor(diff_in_years)
+# get frame intervals from date.start
+date.str <- as.character(raw.df$date.start)
+date.num<-substr(date.str, 1, 6) %>% as.double(.)
 
-months_diff = as.double(substring(date.str, 5, 6)) - as.double(substring(date.str[1], 5, 6))
-total_months = floor(diff_in_years)*12 + months_diff
-
-frame <- mutate(pro.df,frameID = total_months)%>% .[-2364155,] # trim to remove erroneous last obs
+frame <- mutate(raw.df,frameID = date.num-date.num[1]) # get working frame
 
 # convert factors to numeric and fix NaN
 frame$station.id <- as.factor(frame$station.id)
@@ -31,31 +24,49 @@ frame$station.id <- as.numeric(frame$station.id)
 frame$precip[frame$precip==-999] <- NA
 frame$precip[frame$precip<=0] <- NA
 
+str(frame)
+
+# change working dir here in dev mode #
+
 # merging with station meta data
-stat.meta<-read.table("Demonstration/stat.csv",header=TRUE, sep =",")
-stat.meta  <-read.table("Demonstration/stations-single-all-meta.csv",header = TRUE, sep = ",")
-stat.meta$station.id <-stat.meta$stat_id %>% as.numeric(.)
+#raw.meta <-read.table("Demonstration/stat.csv",header=TRUE, sep =",")
+raw.meta <-read.table("Demonstration/stations-single-all-meta.csv",header = TRUE, sep = ",")
+raw.meta$station.id <-raw.meta$stat_id %>% as.numeric(.)
 
 library(data.table)
 
 dat.var = as.data.table(frame)
-dat.meta = as.data.table(stat.meta)
+dat.meta = as.data.table(raw.meta)
+
+merged.df.tmp<-merge(dat.var,dat.meta, by="station.id")
+
+# suspect the ids are inconsistently numbered
+frame.ids<-sort(unique(frame$station.id))
+meta.ids<-sort(unique(raw.meta$station.id))
+
+# adjusting meta to match what lies in frame
+meta.ids.adj <- frame.ids
+dat.meta$station.id <- meta.ids.adj
 
 merged.df<-merge(dat.var,dat.meta, by="station.id")
 
 merged.df$precip[is.na(merged.df$precip)] <- 0
-
 summary(merged.df)
+
+rm(merged.df.tmp) # rm temporary file
 
 save(merged.df,file = "mergedDF.RData") # save merged file for later load
 
-
+rm(dat.meta,dat.var,frame,merged.df,raw.df,raw.meta,date.num,date.spl,date.str,files,frame.ids,meta.ids,meta.ids.adj)
 
 # plotting ----
 
 library(sp)
 
+load("mergedDF.RData")
 dat <- merged.df
+
+
 coordinates(dat) <- ~lon+lat
 proj4string(dat) <- CRS("+proj=longlat +datum=WGS84")
 
@@ -67,104 +78,46 @@ ggmap(map) +
   scale_fill_gradientn(colours=rev(heat.colors(5)))
 
 
-out <- split(merged.df,as.factor(merged.df$frameID)) # get into a list : apply interp to this...
+out <- split(re.merged.df,as.factor(re.merged.df$frameID)) # get into a list : apply interp to this...
+
+
+
+# sclaing to time-window and making a list
+sub.df <- merged.df %>% filter(.,date.start>=18500101)
+sub.list <- split(sub.df,sub.df$frameID)
+results <- list()
+
 
 # interpolation
 library(akima)
-
-df <- merged.df %>% filter(.,frameID==2000)
-fld <- with(df, interp(x = lon, y = lat, z = precip))
-filled.contour(x = fld$x,
-               y = fld$y,
-               z = fld$z,
-               color.palette =
-                 colorRampPalette(c("white", "blue")),
-               xlab = "Longitude",
-               ylab = "Latitude",
-               main = "Germany Rainfall September 2010",
-               key.title = title(main = "Rain (mm)", cex.main = 1))
-
-df.sta <- merged.df %>% filter(.,frameID==600)
-sta<-with(df.sta, interp(x = lon, y = lat, z = precip))
-
-filled.contour(x = sta$x,
-               y = sta$y,
-               z = sta$z,
-               color.palette =
-                 colorRampPalette(c("white","blue")),zlim = c(0,100),
-               xlab = "Longitude",
-               ylab = "Latitude",
-               main = "Germany Rainfall January 1894",
-               key.title = title(main = "Rain (mm)", cex.main = 1),xlim=c(7,15),ylim=c(48,54))
-
-
-# using a list and getting a single result
-sub.df <- merged.df %>% filter(.,frameID>=600)
-sub.list <- split(sub.df,sub.df$frameID)
-results <- list()
-#results<-with(sub.list$`600`, interp(x = lon, y = lat, z = precip))
 
 
 i=1
 
 for (i in i:length(sub.list)){
-  results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = precip,duplicate = "mean"))
+  results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = precip, duplicate = "mean"))
   
 }
 
-where<-getwd()
+
 
 # output of image files to dir
 
+where<-getwd()
+
 i=1
 for (i in i:length(results)){
-  png(filename=paste0(where,"/mapshigh/",i,"out.png"))
+  png(filename=paste0(where,"/mapsnew/",i,"out.png"))
       filled.contour(x = results[[i]]$x,
                      y = results[[i]]$y,
                      z = results[[i]]$z,
                      color.palette =
-                       colorRampPalette(c("white", "blue")),zlim=c(0,160),xlim=c(6,15),ylim=c(48,55),
+                       colorRampPalette(c("white", "blue")),zlim=c(0,160),xlim=c(6,15),ylim=c(47.5,55),
                      xlab = "Longitude",
-                     ylab = "Latitude",
+                     ylab = "Latitude", main=paste0(i, ""),
                      key.title = title(main = "Rain (mm)", cex.main = 1))
       dev.off()      
   
 }
-
-
-x <- list(a=11,b=12,c=13) # Changed to list to address concerns in commments
-lapply(seq_along(x), function(y, n, i) { paste(n[[i]], y[[i]]) }, y=x, n=names(x))
-
-lapply(seq_along(sub.list),interp,x=lon,y=lat,z=precip)
-lapply(seq_along(sub.list), function(x,y,z,i) 
-  {interp(x=i$lon,y=i$lat,z=i$precip)})
-
-lapply(seq_along(sub.list), function(i) paste(names(sub.list)[[i]])) #works
-out<-lapply(seq_along(sub.list), function(i,x,y,z) with(sub.list[[i]],interp(x=lon,y=lat,z=precip))
-out<-lapply(seq_along(sub.list), function(i,x,y,z) with(sub.list[[i]],interp),x=lon,y=lat,z=precip)
-out<-lapply(seq_along(sub.list), function(x,y,z,i) {with(sub.list[[i]],interp)},x=lon,y=lat,z=precip)
-
-###
-# Create a Grid 1
-x.range <- as.numeric(c(min(merged.df$lon), max(merged.df$lon)))  # min/max longitude of the interpolation area
-y.range <- as.numeric(c(min(merged.df$lat), max(merged.df$lat)))  # min/max latitude of the interpolation area
-
-grd <- expand.grid(x = seq(from = x.range[1], to = x.range[2], by = 0.25), y = seq(from = y.range[1], 
-                                                                                   to = y.range[2], by = 0.25))
-
-coordinates(grd) <- ~x + y
-gridded(grd) <- TRUE
-plot(grd, cex = 1.5, col = "grey")
-points(dat, pch = 1, col = "red", cex = 1)
-
-library(gstat)
-idw <- idw(formula = precip ~ 1, locations = dat, 
-           newdata = grd)  # apply idw model for the data
-
-idw.output = as.data.frame(idw)  # output is defined as a data table
-names(idw.output)[1:3] <- c("long", "lat", "var1.pred")  # give names to the modelled variables
-
-ggplot() + geom_tile(data = idw.output, aes(x = long, y = lat, fill = var1.pred))
-
 
 

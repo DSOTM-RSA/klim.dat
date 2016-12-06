@@ -1,11 +1,14 @@
 # klim.dat
-Analysing 180 Years of German Climate Data
+Analysing 175 Years of German Climate Data
 
 DONE: 
-- gridded maps of rainfall (1890 - present)
-- all stations in data-set
+- gridded maps of rainfall (1850 - present)
+- all stations in data-set (3018)
 
 
 TODO: 
-- seasonal deviations of data
+- monthly anomalies
+- TS chacterization and clustering
+- highcharter shiny app 
+
 
