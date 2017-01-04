@@ -57,54 +57,39 @@ rm(merged.df.tmp) # rm temporary file
 
 save(merged.df,file = "mergedDF.RData") # save merged file for later load
 
-rm(dat.meta,dat.var,frame,merged.df,raw.df,raw.meta,date.num,date.month.num,date.year.num,date.spl,date.str,files,frame.ids,meta.ids,meta.ids.adj)
+rm(dat.meta,dat.var,frame,merged.df,raw.df,raw.meta,date.num,date.month.num,date.year.num,date.str,files,frame.ids,meta.ids,meta.ids.adj)
 
-# plotting ----
 
-library(sp)
 
+
+# aggregation ----
 load("mergedDF.RData")
 dat <- merged.df
-
-
-coordinates(dat) <- ~lon+lat
-proj4string(dat) <- CRS("+proj=longlat +datum=WGS84")
-
-library(ggmap)    # loads ggplot2 as well
-map <- get_map(location=rowMeans(bbox(dat)), zoom=5)   # get Google map
-ggmap(map) + 
-  geom_point(data=as.data.frame(dat), aes(lon,lat,fill=height), 
-             color="grey70", size=0.5, shape=21) +
-  scale_fill_gradientn(colours=rev(heat.colors(5)))
-
-
-out <- split(re.merged.df,as.factor(re.merged.df$frameID)) # get into a list : apply interp to this...
-
 
 # scaling to time-window and making a list
 sub.df <- merged.df %>% filter(.,date.start>=18500101)
 
-
 # seasonal deviations from raw rainfall
 sub.df$monthly.means <-with(sub.df, ave(precip,list(month,station.id), FUN=mean))
-sub.df$monthly.anomaly <- with(sub.df, ave(precip, list(month,station.id), FUN=function(x) x-mean(x)))
+sub.df$monthly.anomaly.perc <- with(sub.df, ave(precip, list(month,station.id), FUN=function(x) (x-mean(x))/mean(x)*100))
+
 
 # prepare list for results
 
-sub.df.process <- sub.df %>% select(.,station.id,date.start,date.end,precip,frameID,month,year,lat,lon,locale,monthly.means,monthly.anomaly)
+sub.df.process <- sub.df %>% select(.,station.id,date.start,date.end,precip,frameID,month,year,lat,lon,locale,monthly.means,monthly.anomaly.perc)
 
 sub.list <- split(sub.df.process,sub.df.process$frameID)
 results <- list()
 
 
-# interpolation
+# spatial interpolation using akima
 library(akima)
 
 
 i=1
 
 for (i in i:length(sub.list)){
-  results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = monthly.anomaly, duplicate = "mean"),n=sub.list[[i]]$year)
+  results[[i]]<-with(sub.list[[i]], interp(x = lon, y = lat, z = monthly.anomaly.perc, duplicate = "mean"),n=sub.list[[i]]$year)
   
 }
 
@@ -117,8 +102,8 @@ for (i in i:length(sub.list)){
   
 }
 
-# output of image files to dir
 
+# output of image files to dir
 where<-getwd()
 
 i=1
@@ -128,7 +113,7 @@ for (i in i:length(results)){
                      y = results[[i]]$y,
                      z = results[[i]]$z,
                      color.palette =
-                       colorRampPalette(c("white", "blue")),zlim=c(-50,50),xlim=c(6,15),ylim=c(47.5,55),
+                       colorRampPalette(c("white", "blue")),zlim=c(-100,200),xlim=c(6,15),ylim=c(47.5,55),
                      xlab = "Longitude",
                      ylab = "Latitude", main=paste0(when[[i]], ""),
                      key.title = title(main = "Rain (mm)", cex.main = 1))
@@ -136,4 +121,17 @@ for (i in i:length(results)){
   
 }
 
+# plotting ----
+#library(sp)
+#coordinates(dat) <- ~lon+lat
+#proj4string(dat) <- CRS("+proj=longlat +datum=WGS84")
 
+#library(ggmap)    # loads ggplot2 as well
+#map <- get_map(location=rowMeans(bbox(dat)), zoom=5)   # get Google map
+#ggmap(map) + 
+#  geom_point(data=as.data.frame(dat), aes(lon,lat,fill=height), 
+#             color="grey70", size=0.5, shape=21) +
+#  scale_fill_gradientn(colours=rev(heat.colors(5)))
+
+
+#out <- split(re.merged.df,as.factor(re.merged.df$frameID)) # get into a list : apply interp to this...
