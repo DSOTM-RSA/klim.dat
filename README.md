@@ -2,8 +2,8 @@
 **Analysing 175 Years of German Climate Data**
 
 **DONE:**
-- gridded maps of rainfall: monthly anomalies (1850 - present)
-- all stations in data-set (3018)
+- interpolated maps of precip: monthly anomalies (1950 - present)
+- working with subset (150) of total stations (3018)
 
 
 **TODO:**
