@@ -1,4 +1,4 @@
-# klim.dat
+# klimDWD
 **Analysing 175 Years of German Climate Data**
 
 **DONE:**
