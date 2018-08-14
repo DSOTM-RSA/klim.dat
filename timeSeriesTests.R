@@ -16,4 +16,4 @@ dp$value <- value
 
 dp$grp.means <-with(dp, ave(value,list(month,stat), FUN=mean))
 
-dp$yr.anomaly <- with( dp, ave(value, list(month,stat), FUN=function(x) x- mean(x)))
+dp$yr.anomaly <- with( dp, ave(value, list(month,stat), FUN=function(x) x - mean(x)))
